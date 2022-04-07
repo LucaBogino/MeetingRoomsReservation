@@ -14,11 +14,11 @@ Non sarà possibile eseguire la prenotazione se l’orario indicato si sovrappon
 
 # :computer: Stack
 
-[✔️] Rreact.js v17.0.2
+[✔️] React.js v17.0.2
 
 [✔️] React-Bootstrap v2.2.3
 
-[✔️] react-calendar v3.7.0
+[✔️] React-calendar v3.7.0
 
 [✔️] React-router-dom v6.3.0
 
