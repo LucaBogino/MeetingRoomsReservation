@@ -1,6 +1,6 @@
 # :link: Demo
 
-https://singular-wisp-91682e.netlify.app/
+https://singular-wisp-91682e.netlify.app
 
 # :date: MeetingRoomsReservation
 
