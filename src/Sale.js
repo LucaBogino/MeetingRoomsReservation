@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {StateContext} from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table,Modal, Button, Form, Dropdown, DropdownButton} from 'react-bootstrap';
@@ -14,6 +14,7 @@ function Sale() {
 
     const [prenotazione, setPrenotazione] = useState();
     const [isBooksInfo, setIsBooksInfo] = useState(false);
+    const [formValid, setFormValid] = useState(false);
     const [showSanificazioneAlert, setShowSanificazioneAlert] = useState(false);
     const [showPassTime, setShowPassTime] = useState(false);
     const [show, setShow] = useState(false);
@@ -23,6 +24,14 @@ function Sale() {
     const handleShowAlertSan = () => setShowSanificazioneAlert(true);
     const handleClosePassTime = () => setShowPassTime(false);
     const handleShowPassTime = () => setShowPassTime(true);
+
+    useEffect(() => {
+      if (prenotazione?.user.nome && prenotazione?.user.cognome && prenotazione?.hour.start && prenotazione?.hour.end) {
+        setFormValid(true);
+      } else {
+        setFormValid(false);
+      }
+    }, [prenotazione]);
 
     let navigate = useNavigate();
     const navToCalendar = () => navigate("/calendario");
@@ -247,7 +256,7 @@ function Sale() {
                 {
                   isBooksInfo?
                   <></> :
-                  <Button variant="primary" onClick={bookRoom}>
+                  <Button disabled={!formValid} variant="primary" onClick={bookRoom}>
                     Prenota
                   </Button>
                 }
